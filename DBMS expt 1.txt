@@ -1,0 +1,82 @@
+
+mysql>
+mysql>  create database bd;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use bd;
+Database changed
+mysql> create table library (name char(15),branch char(20),phoneno int(10),Address char(50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc library;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| name    | char(15) | YES  |     | NULL    |       |
+| branch  | char(20) | YES  |     | NULL    |       |
+| phoneno | int(10)  | YES  |     | NULL    |       |
+| Address | char(50) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> alter table library add type char(10);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc library;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| name    | char(15) | YES  |     | NULL    |       |
+| branch  | char(20) | YES  |     | NULL    |       |
+| phoneno | int(10)  | YES  |     | NULL    |       |
+| Address | char(50) | YES  |     | NULL    |       |
+| type    | char(10) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> alter table library
+    -> drop column type ;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc library;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| name    | char(15) | YES  |     | NULL    |       |
+| branch  | char(20) | YES  |     | NULL    |       |
+| phoneno | int(10)  | YES  |     | NULL    |       |
+| Address | char(50) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> create table library visitor (idno int(15),name char(20),phoneno int(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'visitor (idno int(15),name char(20),phoneno int(10))' at line 1
+mysql> create table library_visitor(id_no int(10),name char(15),phone_no int(10));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc library_visitor;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| id_no    | int(10)  | YES  |     | NULL    |       |
+| name     | char(15) | YES  |     | NULL    |       |
+| phone_no | int(10)  | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> create table library_books(book_name char(20),author char(15),book_genre char(10));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc library_books;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| book_name  | char(20) | YES  |     | NULL    |       |
+| author     | char(15) | YES  |     | NULL    |       |
+| book_genre | char(10) | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql>
