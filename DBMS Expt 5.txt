@@ -1,0 +1,43 @@
+
+mysql> use bd;
+Database changed
+mysql>
+mysql>  select*from library_visitor;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+2 rows in set (0.01 sec)
+
+mysql> insert into library_visitor values(7353,'RAM',897554);
+Query OK, 1 row affected (0.01 sec)
+mysql> select*from library_visitor;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select*from library_visitor where id_no=5574;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  5574 | SONU |   938576 |
++-------+------+----------+
+1 row in set (0.01 sec)
+
+mysql> select*from library_visitor where phone_no=897554;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
++-------+------+----------+
+2 rows in set (0.00 sec)
+
+mysql>
