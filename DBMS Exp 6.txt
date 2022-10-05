@@ -1,0 +1,49 @@
+
+mysql> use bd;
+Database changed
+mysql> select*from library_visitor;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.01 sec)
+
+mysql> select*from library_visitor where name IN('RAM','SONU');
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select*from library_visitor where name NOT BETWEEN 'RAM'AND'SONU';
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
++-------+------+----------+
+1 row in set (0.00 sec)
+
+mysql> select count(name) from library_visitor;
++-------------+
+| count(name) |
++-------------+
+|           3 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select*from library_visitor where name BETWEEN 'RAJU' AND 'SONU';
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql>
