@@ -1,0 +1,59 @@
+mysql> use bd;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_bd    |
++-----------------+
+| library         |
+| library_books   |
+| library_visitor |
++-----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc library_visitor;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| id_no    | int(10)  | YES  |     | NULL    |       |
+| name     | char(15) | NO   | PRI |         |       |
+| phone_no | int(10)  | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> insert into library_visitor values(1252,'RAM',7894033465),(6543,'BALU',7654318906),(7654,'RAJU',8765431268);
+ERROR 1264 (22003): Out of range value for column 'phone_no' at row 1
+mysql> INSERT INTO library_visitor VALUES(5334,'RAM',7643986),(9865,'RAJU',23456),(5574,'SONU',938576);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from library_visitor;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |    23456 |
+|  5334 | RAM  |  7643986 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select name from library_visitor;
++------+
+| name |
++------+
+| RAJU |
+| RAM  |
+| SONU |
++------+
+3 rows in set (0.00 sec)
+
+mysql> select * from library_visitor name='SONU';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='SONU'' at line 1
+mysql> select *from library_visitor where name='SONU';
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  5574 | SONU |   938576 |
++-------+------+----------+
+1 row in set (0.01 sec)
+
+mysql>
