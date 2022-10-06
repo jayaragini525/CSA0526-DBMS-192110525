@@ -14,4 +14,4 @@
 # Exp_7
 [sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%207.txt)
 # Exp_8
-[sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%208.txt)
+[sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%208%20.txt)
