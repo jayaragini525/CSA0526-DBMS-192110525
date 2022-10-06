@@ -1,0 +1,54 @@
+
+mysql> use bd;
+Database changed
+mysql> select *from library;
+Empty set (0.01 sec)
+
+mysql> select *from library_visitor;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select *from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
++---------------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql> create view phone_no_view as select name,phone_no and id_no from library_visitor;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select*from phone_no_view;
++------+--------------------+
+| name | phone_no and id_no |
++------+--------------------+
+| RAJU |                  1 |
+| RAM  |                  1 |
+| SONU |                  1 |
++------+--------------------+
+3 rows in set (0.01 sec)
+
+mysql> create index  library_books on author(library_books);
+ERROR 1146 (42S02): Table 'bd.author' doesn't exist
+mysql> create index  author on library_books(author);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from library_books;
++---------------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table         | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++---------------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| library_books |          1 | author   |            1 | author      | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
++---------------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+1 row in set (0.01 sec)
+
+mysql>
