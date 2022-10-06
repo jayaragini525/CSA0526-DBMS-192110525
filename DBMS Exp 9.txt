@@ -1,0 +1,67 @@
+
+
+mysql> use bd;
+Database changed
+mysql> select*from library_visitor;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select*from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
++---------------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select id_no,phone_no,book_name,author
+    -> from library_visitor,library_books
+    -> where author=TINU;
+ERROR 1054 (42S22): Unknown column 'TINU' in 'where clause'
+mysql> select id_no,phone_no,book_name,author
+    -> from library_visitor,library_bookS
+    -> where author='TINU';
++-------+----------+---------------+--------+
+| id_no | phone_no | book_name     | author |
++-------+----------+---------------+--------+
+|  9865 |   897554 | MUSIC IS LIFE | TINU   |
+|  7353 |   897554 | MUSIC IS LIFE | TINU   |
+|  5574 |   938576 | MUSIC IS LIFE | TINU   |
++-------+----------+---------------+--------+
+3 rows in set (0.01 sec)
+
+mysql> select id_no,phone_no,author
+    -> from library_visitor
+    -> left outer join library_books
+    -> on book_name='LOVES';
++-------+----------+--------+
+| id_no | phone_no | author |
++-------+----------+--------+
+|  9865 |   897554 | AJAY   |
+|  7353 |   897554 | AJAY   |
+|  5574 |   938576 | AJAY   |
++-------+----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select id_no,name,author
+    -> from library_visitor
+    -> right outer join library_books
+    -> on id_no=5574;
++-------+------+--------+
+| id_no | name | author |
++-------+------+--------+
+|  5574 | SONU | AJAY   |
+|  5574 | SONU | TINU   |
+|  5574 | SONU | THEVAA |
++-------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql>
