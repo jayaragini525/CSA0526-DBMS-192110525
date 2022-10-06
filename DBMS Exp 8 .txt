@@ -1,0 +1,77 @@
+
+mysql> use bd;
+Database changed
+mysql> select *from library_visitor;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select id_no,name
+    -> from library_visitor where name IN(select name from library_visitor where phone_no=897554);
++-------+------+
+| id_no | name |
++-------+------+
+|  9865 | RAJU |
+|  7353 | RAM  |
++-------+------+
+2 rows in set (0.01 sec)
+
+mysql> desc library;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| name    | char(15) | NO   | MUL |         |       |
+| branch  | char(20) | NO   | PRI |         |       |
+| phoneno | int(10)  | YES  | UNI | NULL    |       |
+| Address | char(50) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+4 rows in set (0.05 sec)
+
+mysql> create table visitor (id int(15),name char(20),phoneno int(10),city char(10),gender char(10));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc visitor;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| id      | int(15)  | YES  |     | NULL    |       |
+| name    | char(20) | YES  |     | NULL    |       |
+| phoneno | int(10)  | YES  |     | NULL    |       |
+| city    | char(10) | YES  |     | NULL    |       |
+| gender  | char(10) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> create table co_visitor(id int(15),name char(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc co_visitor;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| id    | int(15)  | YES  |     | NULL    |       |
+| name  | char(20) | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+2 rows in set (0.03 sec)
+
+mysql> insert into co_visitor(id,name)
+    -> select id_no,name
+    -> from library_visitor where phone_no=897554;
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from co_visitor;
++------+------+
+| id   | name |
++------+------+
+| 9865 | RAJU |
+| 7353 | RAM  |
++------+------+
+2 rows in set (0.00 sec)
+ 
+mysql>
