@@ -1,0 +1,66 @@
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use bd;
+Database changed
+mysql> select*from library_visitor;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select*from library_visitor order by phone_no;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  7353 | RAM  |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from library_visitor order by id_no;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  5574 | SONU |   938576 |
+|  7353 | RAM  |   897554 |
+|  9865 | RAJU |   897554 |
++-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from library_visitor group by phone_no;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  9865 | RAJU |   897554 |
+|  5574 | SONU |   938576 |
++-------+------+----------+
+2 rows in set (0.01 sec)
+
+mysql> select * from library_visitor having phone_no > 1000000;
+Empty set (0.00 sec)
+
+mysql> select * from library_visitor having phone_no > 900000;
++-------+------+----------+
+| id_no | name | phone_no |
++-------+------+----------+
+|  5574 | SONU |   938576 |
++-------+------+----------+
+1 row in set (0.00 sec)
+
+mysql>
