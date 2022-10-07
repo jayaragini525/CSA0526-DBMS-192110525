@@ -1,0 +1,87 @@
+
+
+mysql> use bd;
+Database changed
+mysql> select*from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
++---------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select@@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> insert into library_books values('MAGICS','RAM','MAGIC');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
+| MAGICS        | RAM    | MAGIC      |
++---------------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select@@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> delete from library_books where book_name='MAGICS';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
++---------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select*from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
+| MAGICS        | RAM    | MAGIC      |
++---------------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql>
