@@ -97,7 +97,6 @@ mysql> CALL FIND_FACT(5);
 +-------+
 1 row in set (0.01 sec)
 
-mysql> USE GH
 Database changed
 mysql> DELIMITER //
 mysql> CREATE FUNCTION FIND_SUM1(A INT, B INT)
