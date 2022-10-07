@@ -1,0 +1,30 @@
+
+mysql> use bd;
+Database changed
+mysql> select*from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
++---------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select repeat(author,2) from library_books;
++------------------+
+| repeat(author,2) |
++------------------+
+| --------         |
+| AJAYAJAY         |
+| BALUBALU         |
+| RAMURAMU         |
+| THEVAATHEVAA     |
+| TINUTINU         |
++------------------+
+6 rows in set (0.01 sec)
+
+mysql>
