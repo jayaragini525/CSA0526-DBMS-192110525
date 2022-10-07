@@ -1,0 +1,94 @@
+
+mysql> use bd;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_bd    |
++-----------------+
+| co_visitor      |
+| library         |
+| library_books   |
+| library_visitor |
+| marks           |
+| phone_no_view   |
+| visitor         |
++-----------------+
+7 rows in set (0.02 sec)
+
+mysql> select*from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
+| MAGICS        | RAM    | MAGIC      |
++---------------+--------+------------+
+7 rows in set (0.02 sec)
+
+mysql> desc library_visitor;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| id_no    | int(10)  | YES  |     | NULL    |       |
+| name     | char(15) | NO   | PRI |         |       |
+| phone_no | int(10)  | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+3 rows in set (0.04 sec)
+
+mysql> create user jayaa;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> grant all on library_visitor to jayaa;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show grants for jayaa;
++---------------------------------------------------------------+
+| Grants for jayaa@%                                            |
++---------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'jayaa'@'%'                             |
+| GRANT ALL PRIVILEGES ON `bd`.`library_visitor` TO 'jayaa'@'%' |
++---------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke all on library_visitor from jayaa;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for jayaa;
++-----------------------------------+
+| Grants for jayaa@%                |
++-----------------------------------+
+| GRANT USAGE ON *.* TO 'jayaa'@'%' |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> grants select ,update on library_visitor to jayaa;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'grants select ,update on library_visitor to jayaa' at line 1
+mysql> grant select,update on library_visitor to jayaa;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show grants for jayaa;
++---------------------------------------------------------------+
+| Grants for jayaa@%                                            |
++---------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'jayaa'@'%'                             |
+| GRANT SELECT, UPDATE ON `bd`.`library_visitor` TO 'jayaa'@'%' |
++---------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke update on library_visitor from jayaa;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for jayaa;
++-------------------------------------------------------+
+| Grants for jayaa@%                                    |
++-------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'jayaa'@'%'                     |
+| GRANT SELECT ON `bd`.`library_visitor` TO 'jayaa'@'%' |
++-------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql>
