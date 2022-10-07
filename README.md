@@ -21,3 +21,5 @@
 [sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%2010.txt)
 # Exp_11
 [sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%2011.txt)
+# Exp_13
+[sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%2013.txt)
