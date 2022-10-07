@@ -1,0 +1,55 @@
+
+mysql> use bd
+Database changed
+mysql> select*from hrm;
++---------+------+--------+
+| name    | dob  | gender |
++---------+------+--------+
+| MARRY   | 1979 | F      |
+| SINDHU  | 1979 | F      |
+| RUCHI   | 1977 | M      |
+| LIN DAN | 1997 | M      |
+| SONU    | 1984 | M      |
++---------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select*from hrm_2;
++-----------+--------+
+| sport     | medals |
++-----------+--------+
+| badminton |      8 |
+| boxing    |      5 |
+| swimming  |      3 |
+| badminton |      3 |
++-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select a.name,b.sport,b.medals,medals-23 as gold_medals
+    -> from hrm a,hrm_2 b
+    -> where name='SONU' AND sport='SWIMMING';
++------+----------+--------+-------------+
+| name | sport    | medals | gold_medals |
++------+----------+--------+-------------+
+| SONU | swimming |      3 |         -20 |
++------+----------+--------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select sum(medals),min(medals),max(medals),avg(medals) from hrm_2;
++-------------+-------------+-------------+-------------+
+| sum(medals) | min(medals) | max(medals) | avg(medals) |
++-------------+-------------+-------------+-------------+
+|          19 |           3 |           8 |      4.7500 |
++-------------+-------------+-------------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select a.name,a.dob
+    -> from hrm a
+    -> where exists(select name from hrm where a.name='LIN DAN');
++---------+------+
+| name    | dob  |
++---------+------+
+| LIN DAN | 1997 |
++---------+------+
+1 row in set (0.01 sec)
+
+mysql>
