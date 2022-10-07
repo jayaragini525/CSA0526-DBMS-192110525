@@ -1,0 +1,57 @@
+
+
+mysql> use bd;
+Database changed
+mysql> select*from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
++---------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select book_name,book_genre
+    -> case
+    -> where ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'case
+where' at line 2
+mysql> select book_name,book_genre,
+    -> case
+    -> when book_genre='LOVE' then 'Romance'
+    -> when book_genre='MUSIC' then 'Vibe'
+    -> else 'Natures gift'
+    -> end reader_feelings
+    -> from library_books;
++---------------+------------+-----------------+
+| book_name     | book_genre | reader_feelings |
++---------------+------------+-----------------+
+| LOVES         | LOVE       | Romance         |
+| MUSIC IS LIFE | MUSIC      | Vibe            |
+| A WOMEN LIFE  | LIFE       | Natures gift    |
+| MAGIC OF LOVE | LOVE       | Romance         |
+| PEACE OF LIFE | PEACE      | Natures gift    |
+| ----          | -----      | Natures gift    |
++---------------+------------+-----------------+
+6 rows in set (0.00 sec)
+
+mysql> select book_name,book_genre,
+    -> if(book_genre='LOVE','Romance','Vibe')
+    -> from library_books;
++---------------+------------+----------------------------------------+
+| book_name     | book_genre | if(book_genre='LOVE','Romance','Vibe') |
++---------------+------------+----------------------------------------+
+| LOVES         | LOVE       | Romance                                |
+| MUSIC IS LIFE | MUSIC      | Vibe                                   |
+| A WOMEN LIFE  | LIFE       | Vibe                                   |
+| MAGIC OF LOVE | LOVE       | Romance                                |
+| PEACE OF LIFE | PEACE      | Vibe                                   |
+| ----          | -----      | Vibe                                   |
++---------------+------------+----------------------------------------+
+6 rows in set (0.01 sec)
+
+mysql>
