@@ -1,0 +1,53 @@
+
+mysql> use bd
+Database changed
+mysql> select *from library_books;
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
+| MAGICS        | RAM    | MAGIC      |
++---------------+--------+------------+
+7 rows in set (0.01 sec)
+
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE  library_books_info()
+    -> begin
+    -> select*from library_books;
+    -> end;//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL library_books_info();
+    -> //
++---------------+--------+------------+
+| book_name     | author | book_genre |
++---------------+--------+------------+
+| LOVES         | AJAY   | LOVE       |
+| MUSIC IS LIFE | TINU   | MUSIC      |
+| A WOMEN LIFE  | THEVAA | LIFE       |
+| MAGIC OF LOVE | BALU   | LOVE       |
+| PEACE OF LIFE | RAMU   | PEACE      |
+| ----          | ----   | -----      |
+| MAGICS        | RAM    | MAGIC      |
++---------------+--------+------------+
+7 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call while_loop()
+    -> //
++----------------------------+
+| res                        |
++----------------------------+
+| 1,5,25,125,625,3125,15625, |
++----------------------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
