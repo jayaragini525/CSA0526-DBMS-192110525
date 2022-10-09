@@ -35,6 +35,8 @@
 [sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%2017.txt)
 # Exp_18
 [sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%2018.txt)
+# Exp_19
+[sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%2019.txt)
 # Exp_20
 [sqlqueries](https://github.com/jayaragini525/CSA0526-DBMS-192110525/blob/main/DBMS%20Exp%2020.txt)
 # Exp_21
